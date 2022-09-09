@@ -14,8 +14,8 @@ namespace ExerciceDes
         {
             listeDes = new List<Des>()
             {
-                new DePipe(),
-                new DeOrdinaire()
+                new DeOrdinaire(),
+                new DePipe()
             };
         }
 
@@ -27,8 +27,8 @@ namespace ExerciceDes
             Random choixDe = new Random();
             int indexType = choixDe.Next(listeDes.Count);
 
-            string type = ListeDes[indexType].Type;
-            int valeur = ListeDes[indexType].Brasser();
+            string type = listeDes[indexType].Type;
+            int valeur = listeDes[indexType].Brasser();
 
             Total += valeur;
             string[] resultats = { type, valeur.ToString(), Total.ToString() };
