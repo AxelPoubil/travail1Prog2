@@ -10,6 +10,7 @@ namespace ExerciceDes
     {
         private int total;
         private List<Des> listeDes;
+        Random rand;
         public Controleur()
         {
             listeDes = new List<Des>()
@@ -17,6 +18,8 @@ namespace ExerciceDes
                 new DeOrdinaire(),
                 new DePipe()
             };
+
+            rand = new Random();
         }
 
         public int Total { get => total; set => total = value; }
@@ -24,11 +27,12 @@ namespace ExerciceDes
 
         public string[] Tirage ()
         {
-            Random choixDe = new Random();
-            int indexType = choixDe.Next(listeDes.Count);
+            int indexType = rand.Next(listeDes.Count);
 
-            string type = listeDes[indexType].Type;
-            int valeur = listeDes[indexType].Brasser();
+            Des deChoisi = listeDes[indexType];
+
+            string type = deChoisi.Type;
+            int valeur = deChoisi.Brasser();
 
             Total += valeur;
             string[] resultats = { type, valeur.ToString(), Total.ToString() };
